@@ -17,6 +17,7 @@ pipeline {
     stage('Dockerize'){
       steps {
         script {
+          sh 'docker login -u -p'
           sh 'docker build -t chayandeokar/app:latest .'
         }
       }
@@ -24,6 +25,7 @@ pipeline {
     stage('Push'){
       steps {
         script{
+          sh 'docker login -u -p'
           sh 'docker push chayandeokar/app:latest'
         }
       }
