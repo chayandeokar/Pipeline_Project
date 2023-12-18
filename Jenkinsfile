@@ -7,7 +7,7 @@ pipeline {
                 script {
                     def mavenHome = tool name: 'Maven', type: 'maven'
                     sh "${mavenHome}/bin/mvn clean install"
-                    // sh 'mvn clean install'
+                 
                 }
             }
         }
