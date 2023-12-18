@@ -1,14 +1,13 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven 3.8.4'
-    }
 
     stages {
         stage('Build') {
             steps {
                 script {
-                    sh 'mvn clean install'
+                    def mavenHome = tool name: 'Maven', type: 'maven'
+                    sh "${mavenHome}/bin/mvn clean install"
+                    // sh 'mvn clean install'
                 }
             }
         }
